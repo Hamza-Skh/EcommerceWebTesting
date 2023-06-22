@@ -68,7 +68,7 @@ Cypress.Commands.add('PlaceAnOrder', () => {
     cy.get('[data-qa="expiry-month"]').type('01')
     cy.get('[data-qa="expiry-year"]').type('2024')
     cy.get('[data-qa="pay-button"]').click()
-    //cy.get('#cart_items > .container').should('be.visible').and('contain', 'Your order has been placed successfully!')
+    cy.get('#cart_items > .container').should('be.visible').and('contain', 'Your order has been placed successfully!')
 })
 Cypress.Commands.add('SearchProduct', () => {
     cy.get('#search_product').type('Men Tshirt')
