@@ -43,6 +43,5 @@ describe('This suite contain test cases of Product page', () => {
         cy.get('a[href="/brand_products/Polo"]').click()
         cy.url().should('contain', 'brand_products')
         cy.get('.title').should('contain', 'Brand - Polo Products')
-
     })
 })

@@ -32,7 +32,6 @@ describe('This suite contain test case of cart products', () => {
         cy.get('#product-1 > .cart_delete > .cart_quantity_delete').click()
         cy.get('#product-2 > .cart_delete > .cart_quantity_delete').click()
         cy.get('.description').should('not.be.visible')
-
     })
     it.only('Verify user add to cart from recomended items', () => {
         cy.visit(Cypress.env('baseUrl'))

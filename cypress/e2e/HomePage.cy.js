@@ -50,5 +50,4 @@ describe('This suite contain test case of Homepage', () => {
         cy.get('#form-section > .btn').click()
         cy.get('a#scrollUp').should('be.visible')
     })
-    
 })

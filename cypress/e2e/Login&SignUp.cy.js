@@ -109,4 +109,4 @@ describe('This suite contain test cases of login and signup', () => {
           })
         cy.Del_Account()
     })  
-});
+})
