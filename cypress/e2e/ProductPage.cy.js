@@ -1,4 +1,6 @@
-import '/Users/hamzayounas/Desktop/Testing E-Commerce Web/cypress/support/Utilities.js';
+import '../support/Utilities.js';
+import CommonObject from '../support/Page_Objects/CommonObject.js';
+import Home from '../support/Page_Objects/Home.js';
 
 describe('This suite contain test cases of Product page', () => {
     it('Verify user lands on product page sucessfully', () => {
@@ -27,21 +29,21 @@ describe('This suite contain test cases of Product page', () => {
         cy.get('.alert-success > span').should('be.visible')
     })
     it('Verify user can view and select products from category', () => {
-        cy.visit(Cypress.env('baseUrl'))
+        Home.launch()
         cy.get('.left-sidebar h2').should('contain', 'Category')
         cy.get('.panel-title a[data-toggle="collapse"]').contains('Women').click()
         cy.get('.panel-collapse#Women').contains('Tops').click()
         cy.url().should('contain', 'category_products/2')
-        cy.get('.title').should('contain', 'Women - Tops Products')
+        CommonObject.HeadingTitle.should('contain', 'Women - Tops Products')
         cy.get('.panel-title a[data-toggle="collapse"]').contains('Men').click()
         cy.get('.panel-collapse#Men').contains('Tshirts').click()
-        cy.get('.title').should('contain', 'Men - Tshirts Products')        
+        CommonObject.HeadingTitle.should('contain', 'Men - Tshirts Products')        
     })
     it('Verify user can select products from brands', () => {
         cy.ProductPageVisit()
         cy.get('.left-sidebar h2').should('contain', 'Brands')
         cy.get('a[href="/brand_products/Polo"]').click()
         cy.url().should('contain', 'brand_products')
-        cy.get('.title').should('contain', 'Brand - Polo Products')
+        CommonObject.HeadingTitle.should('contain', 'Brand - Polo Products')
     })
 })
