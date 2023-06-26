@@ -35,7 +35,7 @@ describe('This suite contain test case of cart products', () => {
         cy.get('#product-2 > .cart_delete > .cart_quantity_delete').click()
         CommonObject.CartDescription.should('not.be.visible') 
     })
-    it.only('Verify user add to cart from recomended items', () => {
+    it('Verify user add to cart from recomended items', () => {
         Home.launch()
         cy.get('div.recommended_items > h2.title.text-center').scrollIntoView().should('contain', 'recommended items')
         cy.get('.carousel-inner').find('.item.active').contains('p', 'Stylish Dress').parent('.productinfo').within(() => {

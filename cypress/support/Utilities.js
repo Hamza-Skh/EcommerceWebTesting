@@ -3,12 +3,9 @@ import Home from '../support/Page_Objects/Home.js';
 
 
 Cypress.Commands.add('Del_Account', () => {
-    cy.contains('li a', 'Delete Account').click()
+    CommonObject.DeleteBtn.click()
     cy.contains('h2[data-qa="account-deleted"]', 'Account Deleted!').should('be.visible')
     CommonObject.ContinueBtn.click() 
-})
-Cypress.Commands.add('UserNameVisibility', () => {
-    cy.get('li a i.fa.fa-user + b').should('be.visible').contains('Hamza')
 })
 Cypress.Commands.add('UserSignUp', (User_Name, Email) => {
     cy.get('.signup-form h2').should('have.text', 'New User Signup!')
@@ -39,12 +36,12 @@ Cypress.Commands.add('AddProductsInCart', () => {
 Cypress.Commands.add('NewUserRegistration', () => {
     cy.get('.login-form').should('be.visible').contains('Enter Account Information');
     cy.get('#uniform-id_gender1').click()
-    cy.get('#password').type(Cypress.env('password'));
+    CommonObject.PasswordField.type(Cypress.env('password'));
     cy.get('#days').select('23');
     cy.get('#months').select('January')
     cy.get('#years').select('1994')
     cy.get('#newsletter').click()
-    cy.get('[data-qa="first_name"]').type('Hamza')
+    cy.get('[data-qa="first_name"]').type(Cypress.env('Name'))
     cy.get('[data-qa="last_name"]').type('Younas')
     cy.get('#address1').type(Cypress.env('CustomerAddress'))
     cy.get('#country').select('United States')
@@ -55,6 +52,7 @@ Cypress.Commands.add('NewUserRegistration', () => {
     cy.get('[data-qa="create-account"]').click()
     CommonObject.HeadingTitle.should('be.visible').and('have.text', 'Account Created!')
     CommonObject.ContinueBtn.click() 
+    cy.get('li a i.fa.fa-user + b').should('be.visible').contains(Cypress.env('Name'))
 })
 Cypress.Commands.add('ScrollingDown', () => {
     CommonObject.PageFooter.scrollIntoView()

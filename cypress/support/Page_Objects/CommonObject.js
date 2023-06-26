@@ -1,40 +1,46 @@
 class CommonObject {
-    
-    get ContinueBtn(){
-        return cy.get('[data-qa="continue-button"]')  
+
+    get ContinueBtn() {
+        return cy.get('[data-qa="continue-button"]')
     }
-    get SignUpBtn(){
+    get SignUpBtn() {
         return cy.get('[data-qa="signup-button"]')
     }
-    get HeadingTitle(){
+    get HeadingTitle() {
         return cy.get('.title')
     }
-    get EnterName(){
+    get EnterName() {
         return cy.get('[placeholder="Name"]')
     }
-    get EmailAdress(){
+    get EmailAdress() {
         return cy.get('[placeholder="Email"]')
     }
-    get PageFooter(){
+    get PageFooter() {
         return cy.get('.footer-bottom > .container > .row')
     }
-    get PageHeader(){
+    get PageHeader() {
         return cy.get('.header-middle > .container > .row')
     }
-    get ScrollUpBtn(){
+    get ScrollUpBtn() {
         return cy.get('#scrollUp > .fa')
     }
-    get Subscription(){
+    get Subscription() {
         return cy.get('#susbscribe_email')
     }
-    get CartDescription(){
+    get CartDescription() {
         return cy.get('.description')
     }
-    get ViewCart(){
+    get ViewCart() {
         return cy.contains('a', 'View Cart')
     }
-    get OrderCheckOutBtn(){
+    get OrderCheckOutBtn() {
         return cy.get('.col-sm-6 > .btn')
+    }
+    get DeleteBtn() {
+        return cy.contains('li a', 'Delete Account')
+    }
+    get PasswordField() {
+        return cy.get('[type="password"]')
     }
 }
 export default new CommonObject
