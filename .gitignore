@@ -7,3 +7,5 @@ cypress.config.js
 /cypress/videos
 /cypress/screenshots
 /cypress/downloads
+allure-report
+allure-results
