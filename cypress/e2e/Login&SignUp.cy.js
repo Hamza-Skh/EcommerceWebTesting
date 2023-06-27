@@ -3,9 +3,6 @@ import CommonObject from '../support/Page_Objects/CommonObject.js';
 import Home from '../support/Page_Objects/Home.js';
 
 describe('This suite contain test cases of login and signup', () => {
-    // beforeEach(() => {
-    //     cy.login()
-    //   })
     it('Verify new user register and delete account sucessfully', () => {
         Home.launch()
         Home.Login_SignUPBtn.click()
@@ -23,7 +20,6 @@ describe('This suite contain test cases of login and signup', () => {
         Home.CartBtn.click()
         cy.PlaceAnOrder()
         CommonObject.HeadingTitle.should('have.text', 'Order Placed!')
-        //cy.get('.alert-success.alert').should('be.visible').contains('Your order has been placed successfully!');
         cy.Del_Account()
     })
     it('Verify user checkout after signup', () => {
@@ -100,18 +96,11 @@ describe('This suite contain test cases of login and signup', () => {
         cy.PlaceAnOrder()
         cy.window().document().then(function (doc) {
             doc.addEventListener('click', () => {
-              setTimeout(function () { doc.location.reload() }, 5000)
+                setTimeout(function () { doc.location.reload() }, 5000)
             })
             cy.get('.btn-default').contains('Download Invoice').click()
-          })
-        // cy.intercept('GET', '/Users/hamzayounas/Desktop/Testing E-Commerce Web/cypress/downloads', '').as('download')
-        // cy.visit('https://www.automationexercise.com/payment_done/900')
-        // cy.get('.btn-default').contains('Download Invoice').click()
-        // cy.wait('@download')
-         cy.readFile('/Users/hamzayounas/Desktop/Testing E-Commerce Web/cypress/downloads/invoice.txt').should('exist');
-            // cy.request('GET', 'https://www.automationexercise.com/download_invoice/*').then((response) => {
-            //     expect(response.status).to.eq(200)
-            //   })
+        })
+        cy.readFile('/Users/hamzayounas/Desktop/Testing E-Commerce Web/cypress/downloads/invoice.txt').should('exist');
         cy.Del_Account()
     })
 })
