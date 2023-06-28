@@ -13,4 +13,3 @@ Cypress.Commands.add('login', (login_email, login_password) => {
         cy.get('li a i.fa.fa-user + b').should('be.visible').contains('Hamza')
     //})
 })
-
